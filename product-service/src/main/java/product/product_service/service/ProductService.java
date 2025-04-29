@@ -8,6 +8,7 @@ import product.product_service.entity.Product;
 import product.product_service.repository.ProductRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,4 +27,8 @@ public class ProductService {
     public List<Product> getAll() {
         return productRepository.findAll();
     }
+    public Optional<Product> getProductById(Long id) {
+        return productRepository.findById(id);
+    }
+
 }
