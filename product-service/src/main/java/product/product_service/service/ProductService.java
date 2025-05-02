@@ -27,6 +27,10 @@ public class ProductService {
     public List<Product> getAll() {
         return productRepository.findAll();
     }
+    public boolean productExists(Long id) {
+        return productRepository.existsById(id);
+    }
+
     public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
     }

@@ -27,6 +27,11 @@ public class ProductController {
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
+    @GetMapping("/exists/{id}")
+    public ResponseEntity<Boolean> productExists(@PathVariable Long id) {
+        boolean exists = productService.productExists(id);
+        return ResponseEntity.ok(exists);
+    }
     @GetMapping
     public ResponseEntity<List<Product>> list() {
         return ResponseEntity.ok(productService.getAll());
