@@ -3,10 +3,7 @@ package user.user_service.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import user.user_service.dto.UserRequest;
 import user.user_service.entity.User;
@@ -27,6 +24,9 @@ public class UserService {
                 .email(userRequest.getEmail())
                 .build();
         return userRepository.save(user);
+    }
+    public boolean userExists(Long id) {
+        return userRepository.existsById(id);
     }
 
     public List<User> getAllUsers() {
